@@ -53,6 +53,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		19461954217461380049BC60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19F03D852174418C0009866A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		19F03D772174418C0009866A = {
 			isa = PBXGroup;
 			children = (
@@ -72,13 +80,13 @@
 		19F03D822174418C0009866A /* Blog-CatCameraML */ = {
 			isa = PBXGroup;
 			children = (
-				19F03D9F217448760009866A /* Assets.xcassets */,
 				19F03D9C217446A80009866A /* Views */,
+				19461954217461380049BC60 /* Controller */,
 				19F03D95217442280009866A /* Resources */,
 				19F03D832174418C0009866A /* AppDelegate.swift */,
-				19F03D852174418C0009866A /* ViewController.swift */,
 				19F03D8C217441940009866A /* LaunchScreen.storyboard */,
 				19F03D8F217441940009866A /* Info.plist */,
+				19F03D9F217448760009866A /* Assets.xcassets */,
 			);
 			path = "Blog-CatCameraML";
 			sourceTree = "<group>";

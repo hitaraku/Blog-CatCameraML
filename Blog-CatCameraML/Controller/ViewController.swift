@@ -8,7 +8,6 @@
 
 import UIKit
 import Vision
-import VideoToolbox
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -46,8 +45,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! CustomResultCell
         
-        //        let cell = tableView.dequeueReusableCellWithIdentifier(withIdentifier: "ResultCell", for: indexPath) as! CustomResultCell
-        
         cell.resultLabel.text = resultArray[indexPath.row]
         cell.resultOdds.text = resultOddsArray[indexPath.row]
         
@@ -58,27 +55,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    
-    /*
-     This uses the Core ML-generated MobileNet class directly.
-     Downside of this method is that we need to convert the UIImage to a
-     CVPixelBuffer object ourselves. Core ML does not resize the image for
-     you, so it needs to be 224x224 because that's what the model expects.
-     */
-    func predictUsingCoreML(image: UIImage) {
-        if let pixelBuffer = image.pixelBuffer(width: 224, height: 224),
-            let prediction = try? model.prediction(data: pixelBuffer) {
-            let top5 = top(5, prediction.prob)
-            store(results: top5)
-            
-            // This is just to test that the CVPixelBuffer conversion works OK.
-            // It should have resized the image to a square 224x224 pixels.
-            var imoog: CGImage?
-            VTCreateCGImageFromCVPixelBuffer(pixelBuffer, nil, &imoog)
-            imageView.image = UIImage(cgImage: imoog!)
-        }
     }
     
     /*
@@ -120,19 +96,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         for (i, pred) in results.enumerated() {
             let start = pred.0.index(pred.0.startIndex, offsetBy: 9)
-            //            resultArray.append(String(format: "%d: %@ (%3.2f%%)", i + 1, String(pred.0[start..<pred.0.endIndex]), pred.1 * 100))
-            //            resultArray.append(String(format: "%@", String(pred.0[start..<pred.0.endIndex])))
             
             // get first keyword
-            var resultStr = String(pred.0[start..<pred.0.endIndex])
+            let resultStr = String(pred.0[start..<pred.0.endIndex])
             var resultStrArr = resultStr.split(separator: " ")
-            
-            //print("first print: " + resultStrArr[0].replacingOccurrences(of: ",", with: ""))
             
             resultArray.append("\(i + 1): " + resultStrArr[0].replacingOccurrences(of: ",", with: ""))
             resultOddsArray.append(String(format: "%3.2f%%", pred.1 * 100))
         }
-        //predictionLabel.text = resultArray.joined(separator: "\n\n")
     }
     
     func top(_ k: Int, _ prob: [String: Double]) -> [Prediction] {
@@ -154,7 +125,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             photoLibraryPicker.delegate = self;
             photoLibraryPicker.sourceType = .photoLibrary
             self.present(photoLibraryPicker, animated: true, completion: nil)
-            //currentVC.present(myPickerController, animated: true, completion: nil)
         } else {
             // error
         }
