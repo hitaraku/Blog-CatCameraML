@@ -63,15 +63,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      be related to how the UIImage gets converted.
      */
     func predictUsingVision(image: UIImage) {
+        //モデルからコンテナ作成
         guard let visionModel = try? VNCoreMLModel(for: model.model) else {
             fatalError("Someone did a baddie")
         }
         
+        // 作成したコンテナからCoreMLに対するリクエストを作成。
         let request = VNCoreMLRequest(model: visionModel) { request, error in
             if let observations = request.results as? [VNClassificationObservation] {
                 
                 // The observations appear to be sorted by confidence already, so we
-                // take the top 5 and map them to an array of (String, Double) tuples.
+                // take the top 3 and map them to an array of (String, Double) tuples.
                 let top3 = observations.prefix(through: 2)
                     .map { ($0.identifier, Double($0.confidence)) }
                 self.store(results: top3)
