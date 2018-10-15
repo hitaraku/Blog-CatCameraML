@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1946194E21744C000049BC60 /* CustomResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946194C21744C000049BC60 /* CustomResultCell.swift */; };
 		1946194F21744C000049BC60 /* CustomResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1946194D21744C000049BC60 /* CustomResultCell.xib */; };
-		19461953217452150049BC60 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19461952217452150049BC60 /* UIImage+CVPixelBuffer.swift */; };
 		19F03D842174418C0009866A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F03D832174418C0009866A /* AppDelegate.swift */; };
 		19F03D862174418C0009866A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F03D852174418C0009866A /* ViewController.swift */; };
 		19F03D8E217441940009866A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F03D8C217441940009866A /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		1946194C21744C000049BC60 /* CustomResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomResultCell.swift; sourceTree = "<group>"; };
 		1946194D21744C000049BC60 /* CustomResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomResultCell.xib; sourceTree = "<group>"; };
-		19461952217452150049BC60 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
 		19F03D802174418C0009866A /* Blog-CatCameraML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blog-CatCameraML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F03D832174418C0009866A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F03D852174418C0009866A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 		19F03D9C217446A80009866A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				19461952217452150049BC60 /* UIImage+CVPixelBuffer.swift */,
 				1946194B21744BE70049BC60 /* Cells */,
 				19F03D9A217446060009866A /* Main.storyboard */,
 			);
@@ -191,7 +188,6 @@
 			files = (
 				19F03D862174418C0009866A /* ViewController.swift in Sources */,
 				19F03D842174418C0009866A /* AppDelegate.swift in Sources */,
-				19461953217452150049BC60 /* UIImage+CVPixelBuffer.swift in Sources */,
 				19F03D992174451C0009866A /* MobileNet.mlmodel in Sources */,
 				1946194E21744C000049BC60 /* CustomResultCell.swift in Sources */,
 			);
