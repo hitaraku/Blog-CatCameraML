@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Blog_CatCameraML" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QFG-PM-Xsj" userLabel="MainView">
+                                <rect key="frame" x="5" y="90" width="310" height="428"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0fO-8r-v2e">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="209"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage" translatesAutoresizingMaskIntoConstraints="NO" id="EK3-Qx-PYZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="209"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-eU-zn7">
+                                                <rect key="frame" x="235" y="0.0" width="75" height="209"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAF-hz-den" userLabel="Menu Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="209"/>
+                                                        <state key="normal" image="MenuImage">
+                                                            <color key="titleShadowColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="startPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qPa-6G-Apg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ah1-eU-zn7" firstAttribute="width" secondItem="EK3-Qx-PYZ" secondAttribute="width" multiplier="1:3" id="P1t-NU-IeK"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yf7-IW-aUG">
+                                        <rect key="frame" x="0.0" y="219" width="310" height="209"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Hr5-sM-PVn" customClass="CustomResultCell">
+                                                <rect key="frame" x="0.0" y="28" width="310" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hr5-sM-PVn" id="9Ax-Aa-xYc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Yf7-IW-aUG" secondAttribute="bottom" id="DHc-oG-mSL"/>
+                                    <constraint firstItem="Yf7-IW-aUG" firstAttribute="leading" secondItem="QFG-PM-Xsj" secondAttribute="leading" id="Yee-Kg-eYa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yf7-IW-aUG" secondAttribute="trailing" id="d0O-wj-rDy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QFG-PM-Xsj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="ALy-83-tMu"/>
+                            <constraint firstAttribute="trailing" secondItem="QFG-PM-Xsj" secondAttribute="trailing" constant="5" id="ffr-x8-D9I"/>
+                            <constraint firstItem="QFG-PM-Xsj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="n3p-Od-fo5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QFG-PM-Xsj" secondAttribute="bottom" constant="50" id="ymn-Qw-s8h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="EK3-Qx-PYZ" id="hss-8k-pWG"/>
+                        <outlet property="resultTableView" destination="Yf7-IW-aUG" id="V89-xh-HX6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.875" y="38.028169014084504"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MenuImage" width="100" height="100"/>
+        <image name="NoImage" width="200" height="200"/>
+    </resources>
+</document>
